@@ -1,0 +1,21 @@
+{
+    "sites": [
+        {
+            "url": "https://example.com/",
+            "name": "Example"
+        },
+        {
+            "url": "https://google.com/",
+            "name": "Google"
+        }
+    ],
+    "dashboard": {
+        "controls_enabled": true,
+        "rotation_enabled": true,
+        "rotation_on_by_default": true,
+        "primary_color": "#17D1C7",
+        "primary_contrast_color": "#21244F",
+        "text_color": "#FFFFFF",
+        "background_color": "#21244F"
+    }
+}
