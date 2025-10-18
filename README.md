@@ -107,7 +107,7 @@ This is a list of all of the JSON properties that can be used to configure easy-
             <td>name</td>
             <td>string</td>
             <td>Display name for the website. Required.</td>
-            <td>BBC News</td>
+            <td>Google</td>
             <td>Business Simulations</td>
         </tr>
     </tbody>
