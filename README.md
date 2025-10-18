@@ -43,11 +43,64 @@ go
 
 ## Getting started
 
-TODO.
+Download the executable for your platform from the [latest release page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.1.0).
+
+- [Linux AMD64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_linux_amd64.deb)
+- [Linux ARM64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_linux_arm64.deb)
+- [MacOS ARM](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_darwin_aarch64.dmg)
+- [MacOS Intel](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_darwin_x64.dmg)
+- [Windows AMD64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_windows_amd64.exe)
+- [Windows ARM64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_windows_arm64.exe)
+
+Install the application according to your operating system procedure.
+
+### Linux Debian/Raspberry PI
+
+Install the application with:
+
+```bash
+sudo dpkg -i <downloaded deb file>
+```
+
+### MacOS
+
+Double click the DMG file and install it into your `Applications`. It might complain about signing, this is because
+it is a self signed application that you will have to give permission to run.
+
+### Windows
+
+Double click the executable file, you may have to grant permission to allow it to run.
+
+### Others (Linux Fedora etc.)
+
+Look at the available installation bundles on the [latest release
+page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.1.0) to check for a supported installer.
 
 ## Configuration
 
 You can configure easy-web-dashboard using a JSON configuration file called `config.json`.
+
+### Example JSON Configuration
+
+```json
+{
+    "sites": [
+        {
+            "url": "https://businesssimulations.com",
+            "name": "Business Simulations"
+        }
+    ],
+    "dashboard": {
+        "rotation_seconds": 45,
+        "rotation_enabled": true,
+        "rotation_on_by_default": true,
+        "primary_color": "#17D1C7",
+        "primary_contrast_color": "#21244F",
+        "text_color": "#FFFFFF",
+        "background_color": "#21244F"
+    }
+}
+```
 
 ### Reference
 
@@ -184,28 +237,6 @@ This is a list of all of the JSON properties that can be used to configure easy-
         </tr>
     </tbody>
 </table>
-
-### Example JSON Configuration
-
-```json
-{
-    "sites": [
-        {
-            "url": "https://businesssimulations.com",
-            "name": "Business Simulations"
-        }
-    ],
-    "dashboard": {
-        "rotation_seconds": 45,
-        "rotation_enabled": true,
-        "rotation_on_by_default": true,
-        "primary_color": "#17D1C7",
-        "primary_contrast_color": "#21244F",
-        "text_color": "#FFFFFF",
-        "background_color": "#21244F"
-    }
-}
-```
 
 ## Supported platforms
 
