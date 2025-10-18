@@ -64,8 +64,18 @@ sudo dpkg -i <downloaded deb file>
 
 ### MacOS
 
-Double click the DMG file and install it into your `Applications`. It might complain about signing, this is because
-it is a self signed application that you will have to give permission to run.
+Double click the DMG file and install it into your `Applications`.
+
+When you try to open the application it will fail to open with a message like:
+
+> Apple could not verify "easy-web-dashboard" is free of malware that may harm your Mac or compromise your privacy.
+
+To allow you to open this, you need to allow it past this security feature.
+
+Open up your 'System Settings', go to 'Privacy & Security' and scroll down to 'Security', there should be a message
+stating that "easy-web-dashboard" was blocked from opening, and you can choose to override this and open it anyway.
+
+Once this is done the application will be able to open normally.
 
 ### Windows
 
@@ -78,7 +88,8 @@ page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.1
 
 ## Configuration
 
-You can configure easy-web-dashboard using a JSON configuration file called `config.json`.
+You can configure easy-web-dashboard using a JSON configuration file called `config.json` in the directory that you are
+running the program from.
 
 ### Example JSON Configuration
 
