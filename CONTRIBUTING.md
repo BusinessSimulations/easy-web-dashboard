@@ -4,13 +4,13 @@ Thank you for your interest in contributing to **easy-web-dashboard**.
 We welcome contributions of all kinds — bug reports, feature requests, and pull requests.
 
 This project is developed and maintained by [Business Simulations](https://www.businesssimulations.com) and is licensed
-under the [MIT licence](LICENSE).
+under the [MIT licence](LICENSE.md).
 
 ## 📌 Quick links
 
 - **Project repository**: https://github.com/BusinessSimulations/easy-web-dashboard
 - **Issues tracker**: https://github.com/BusinessSimulations/easy-web-dashboard/issues
-- **MIT licence**: [LICENSE](LICENSE)
+- **MIT licence**: [LICENSE](LICENSE.md)
 
 ## 🐛 Bug reports
 
@@ -54,6 +54,9 @@ You will need these dependencies:
 
 - NodeJS v22+
 - Rust v1.90+
+
+If you are on Linux you need to be set up with dependencies for Tauri development, see here:
+<https://v2.tauri.app/start/prerequisites/#linux>
 
 Follow these steps after forking and cloning the repository to run the project:
 
