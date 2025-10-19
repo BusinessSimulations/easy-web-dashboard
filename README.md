@@ -49,7 +49,7 @@ Download the executable for your platform from the [latest release page](https:/
 - [Linux ARM64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_linux_arm64.deb)
 - [MacOS ARM](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_darwin_aarch64.dmg)
 - [MacOS Intel](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_darwin_x64.dmg)
-- [Windows AMD64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_windows_amd64.exe)
+- [Windows AMD64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_windows_x64.exe)
 - [Windows ARM64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.1.0/easy-web-dashboard_windows_arm64.exe)
 
 Install the application according to your operating system procedure.
@@ -61,6 +61,14 @@ Install the application with:
 ```bash
 sudo dpkg -i <downloaded deb file>
 ```
+
+If it fails to install because dependencies are missing, you can install any required dependencies by running:
+
+```bash
+sudo apt install -f
+```
+
+And then run the `dpkg` command again to finish the installation.
 
 ### MacOS
 
@@ -102,6 +110,7 @@ running the program from.
         }
     ],
     "dashboard": {
+        "controls_enabled": true,
         "rotation_seconds": 45,
         "rotation_enabled": true,
         "rotation_on_by_default": true,
@@ -251,10 +260,12 @@ This is a list of all of the JSON properties that can be used to configure easy-
 
 ## Supported platforms
 
-- MacOS ARM64
-- Windows AMD64
 - Linux AMD64
 - Linux ARM64
+- MacOS AMD64
+- MacOS ARM64
+- Windows AMD64
+- Windows ARM64
 
 ## License
 

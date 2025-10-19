@@ -14,7 +14,7 @@ under the [MIT licence](LICENSE).
 
 ## 🐛 Bug reports
 
-If you've encountered a bug, please [open an issue](https://github.com/BusinessSimulations/easy-web-dashboard/issues/new?template=bug_report.yaml) and include:
+If you've encountered a bug, please [open an issue](https://github.com/BusinessSimulations/easy-web-dashboard/issues/new?template=bug_report.yml) and include:
 
 - A clear and descriptive title
 - Steps to reproduce the issue
@@ -26,7 +26,7 @@ If you've encountered a bug, please [open an issue](https://github.com/BusinessS
 
 ## ✨ Feature requests
 
-We welcome new ideas. To request a feature or enhancement, [open an issue](https://github.com/BusinessSimulations/easy-web-dashboard/issues/new?template=feature_request.yaml) and include:
+We welcome new ideas. To request a feature or enhancement, [open an issue](https://github.com/BusinessSimulations/easy-web-dashboard/issues/new?template=feature_request.yml) and include:
 
 - A concise explanation of the feature
 - The motivation behind it (what problem it solves or improves)
