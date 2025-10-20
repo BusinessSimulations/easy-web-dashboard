@@ -2,6 +2,8 @@ import { getCurrentWindow } from "@tauri-apps/api/window";
 import { Webview, } from "@tauri-apps/api/webview";
 import { invoke } from "@tauri-apps/api/core";
 
+const CONTROLS_HEIGHT = 50;
+
 // Config type definitions
 interface SiteConfig {
     url: string;
@@ -47,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 primary_color: '#1976d2',
                 primary_contrast_color: '#ffffff',
                 text_color: '#000000',
-                background_color: '#f5f5f5'
+                background_color: '#f5f5f5',
             }
         };
     }
@@ -55,10 +57,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Apply theme from config
     applyTheme(config.dashboard);
 
-    // Get the current window instance
     const appWindow = getCurrentWindow();
-
-    await appWindow.setFullscreen(true);
 
     const size = await appWindow.innerSize();
     const scale = await appWindow.scaleFactor();
@@ -66,8 +65,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Convert physical pixels to logical pixels
     const logicalWidth = size.width / scale;
     const logicalHeight = size.height / scale;
-
-    await appWindow.setDecorations(false);
 
     // Get URLs from config
     const urls = config.sites.map(site => site.url);
@@ -92,11 +89,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             webview = new Webview(appWindow, 'webview', {
                 url: urls[currentUrlIndex],
 
-                // create a webview with specific logical position and size
                 x: 0,
-                y: 0,
+                y: CONTROLS_HEIGHT,
                 width: logicalWidth,
-                height: config.dashboard.controls_enabled ? logicalHeight - 50 : logicalHeight,
+                height: config.dashboard.controls_enabled ? logicalHeight - CONTROLS_HEIGHT : logicalHeight,
             });
 
             webview.once('tauri://created', function () {
@@ -106,16 +102,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             webview.once('tauri://error', function (e) {
                 console.error('an error happened creating the webview', e);
             });
-
-            // Set up event handlers for this webview instance
-            await webview.emit("some-event", "data");
-
-            const unlisten = await webview.listen("event-name", e => {
-                console.log('Received event:', e);
-            });
-
-            // Store unlisten function for cleanup if needed
-            return unlisten;
         } catch (err) {
             console.error('Error creating webview:', err);
             return null;
@@ -130,13 +116,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Update to the next URL
             const nextIndex = (currentUrlIndex + 1) % urls.length;
 
-            // Clean up event listener from previous webview if it exists
-            if (currentUnlisten) {
-                currentUnlisten();
-            }
-
             // Create a new webview with the next URL
-            currentUnlisten = await createWebview(nextIndex);
+            await createWebview(nextIndex);
         }, config.dashboard.rotation_seconds * 1000); // Convert seconds to milliseconds
 
         console.log("Auto rotation started");
@@ -246,15 +227,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 button.textContent = urlLabels[index];
                 button.addEventListener('click', async () => {
                     // Clean up event listener from previous webview if it exists
-                    if (currentUnlisten) {
-                        currentUnlisten();
-                    }
                     if (autoRotateToggle) {
                         autoRotateToggle.checked = false;
                     }
                     stopRotation();
                     // Create a new webview with the selected URL
-                    currentUnlisten = await createWebview(index);
+                    await createWebview(index);
                 });
                 navBar.appendChild(button);
             });
@@ -262,7 +240,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // Create the initial webview
-    let currentUnlisten = await createWebview();
+    await createWebview();
 
     // Start auto-rotation if enabled
     if (isAutoRotateEnabled && config.dashboard.rotation_enabled) {

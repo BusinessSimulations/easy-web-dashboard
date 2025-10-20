@@ -6,6 +6,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.1] - 2025-10-20
+- Move controls from bottom to top
+
 ## [0.2.0] - 2025-10-20
 - Build Linux ARM on Ubuntu 22.04 for better GLIBC compatability
 
@@ -13,7 +16,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Initial release
 
 [Unreleased]:
-https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.2.0...HEAD
+https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.2.1...HEAD
+[0.2.1]:
+https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.2.0...0.2.1
 [0.2.0]:
 https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.1.0...0.2.0
 [0.1.0]:

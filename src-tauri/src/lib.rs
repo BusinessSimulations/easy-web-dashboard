@@ -1,6 +1,7 @@
 mod config;
 
 use config::{AppConfig, load_config};
+use tauri::{WebviewUrl, WindowBuilder, LogicalPosition, LogicalSize};
 
 #[tauri::command]
 fn get_config() -> Result<AppConfig, String> {
@@ -12,6 +13,27 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![get_config])
+        .setup(|app| {
+            let win_builder =
+                WindowBuilder::new(app, "main")
+                .title("easy-web-dashboard")
+                .fullscreen(true)
+                .decorations(false);
+
+            let window = win_builder.build().unwrap();
+
+            let size = window.inner_size()?;
+            let scale_factor = window.scale_factor()?;
+            let logical_size = size.to_logical(scale_factor);
+
+            let _controls_web_view = window.add_child(
+                tauri::webview::WebviewBuilder::new("controls", WebviewUrl::App(Default::default())),
+                LogicalPosition::new(0., 0.),
+                LogicalSize::new(logical_size.width, 50.),
+            )?;
+
+            Ok({})
+        })
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
