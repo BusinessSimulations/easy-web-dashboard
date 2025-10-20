@@ -13,6 +13,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Initial release
 
 [Unreleased]:
-https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.1.0...HEAD
+https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.2.0...HEAD
+[0.2.0]:
+https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.1.0...0.2.0
 [0.1.0]:
 https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.1.0
