@@ -6,6 +6,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.0] - 2025-10-20
+- Build Linux ARM on Ubuntu 22.04 for better GLIBC compatability
+
 ## [0.1.0] - 2025-10-18
 - Initial release
 

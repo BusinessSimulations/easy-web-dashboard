@@ -87,7 +87,8 @@ Once this is done the application will be able to open normally.
 
 ### Windows
 
-Double click the executable file, you may have to grant permission to allow it to run.
+Double click the executable file, this will install the application, you may have to grant permission to allow it to
+run.
 
 ### Others (Linux Fedora etc.)
 
