@@ -18,7 +18,8 @@ pub fn run() {
                 WindowBuilder::new(app, "main")
                 .title("easy-web-dashboard")
                 .fullscreen(true)
-                .decorations(false);
+                .decorations(false)
+                .resizable(false);
 
             let window = win_builder.build().unwrap();
 
@@ -26,11 +27,16 @@ pub fn run() {
             let scale_factor = window.scale_factor()?;
             let logical_size = size.to_logical(scale_factor);
 
-            let _controls_web_view = window.add_child(
+            let controls_web_view = window.add_child(
                 tauri::webview::WebviewBuilder::new("controls", WebviewUrl::App(Default::default())),
                 LogicalPosition::new(0., 0.),
                 LogicalSize::new(logical_size.width, 50.),
             )?;
+
+            controls_web_view.set_bounds(tauri::Rect {
+                position: LogicalPosition::new(0., 0.).into(),
+                size: LogicalSize::new(logical_size.width, 50.).into(),
+            }).unwrap();
 
             Ok({})
         })

@@ -5242,3 +5242,8 @@ dependencies = [
  "syn 2.0.107",
  "winnow 0.7.13",
 ]
+
+[[patch.unused]]
+name = "tauri"
+version = "2.3.0"
+source = "git+https://github.com/ELginas/tauri.git?rev=561ecc2077c39d6adfac78a2db2cee67bbe42321#561ecc2077c39d6adfac78a2db2cee67bbe42321"

@@ -6,6 +6,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.3.0] - 2025-10-20
+- Use experimental Tauri fork for better Linux support
+
 ## [0.2.1] - 2025-10-20
 - Move controls from bottom to top
 
