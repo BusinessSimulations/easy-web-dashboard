@@ -16,7 +16,6 @@
         "primary_color": "#17D1C7",
         "primary_contrast_color": "#21244F",
         "text_color": "#FFFFFF",
-        "background_color": "#21244F",
-        "controls_position": "bottom"
+        "background_color": "#21244F"
     }
 }

@@ -203,7 +203,7 @@ This is a list of all of the JSON properties that can be used to configure easy-
         <tr>
             <td>controls_enabled</td>
             <td>boolean</td>
-            <td>If the dashboard controls are enabled, if not the bottom bar will not be visible.</td>
+            <td>If the dashboard controls are enabled, if not the controls bar will not be visible.</td>
             <td>false</td>
             <td>true</td>
         </tr>
