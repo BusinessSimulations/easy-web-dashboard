@@ -6,6 +6,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.4.0] - 2025-10-22
+- Switch from Tauri to Electron
+
 ## [0.3.0] - 2025-10-21
 - Use experimental Tauri fork for better Linux support
 
@@ -19,7 +22,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Initial release
 
 [Unreleased]:
-https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.3.0...HEAD
+https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.4.0...HEAD
+[0.4.0]:
+https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.3.0...0.4.0
 [0.3.0]:
 https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.2.1...0.3.0
 [0.2.1]:

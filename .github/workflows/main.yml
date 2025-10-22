@@ -36,28 +36,111 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
-
-      - name: install Rust stable
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          # Those targets are only used on macos runners so it's in an `if` to slightly speed up windows and linux builds.
-          targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
-
-      - name: install dependencies (ubuntu only)
-        if: matrix.platform == 'ubuntu-22.04' || matrix.platform == 'ubuntu-22.04-arm'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf xdg-utils
+          node-version: 22
 
       - name: install frontend dependencies
         run: npm ci
 
-      - uses: tauri-apps/tauri-action@v0
+      - name: run code linting
+        run: npm run lint
+
+      - name: mark version in npm
         if: github.event_name == 'release'
+        run: npm version ${{ github.ref_name }}
+
+      - name: build application
+        run: npm run make
+
+      # Linux ARM64 packages
+      - name: Upload Linux ARM64 DEB
+        if: github.event_name == 'release' && matrix.platform == 'ubuntu-22.04-arm'
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: ${{ github.ref_name }}
-          args: ${{ matrix.args }}
-          assetNamePattern: easy-web-dashboard_[platform]_[arch][ext]
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./out/make/deb/arm64/easy-web-dashboard_${{ github.ref_name }}_arm64.deb
+          asset_name: easy-web-dashboard_${{ github.ref_name }}_arm64.deb
+          asset_content_type: application/vnd.debian.binary-package
+
+      - name: Upload Linux ARM64 RPM
+        if: github.event_name == 'release' && matrix.platform == 'ubuntu-22.04-arm'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./out/make/rpm/arm64/easy-web-dashboard-${{ github.ref_name }}-1.arm64.rpm
+          asset_name: easy-web-dashboard-${{ github.ref_name }}-1.arm64.rpm
+          asset_content_type: application/x-rpm
+
+      # Linux AMD64 packages
+      - name: Upload Linux AMD64 DEB
+        if: github.event_name == 'release' && matrix.platform == 'ubuntu-22.04'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./out/make/deb/amd64/easy-web-dashboard_${{ github.ref_name }}_amd64.deb
+          asset_name: easy-web-dashboard_${{ github.ref_name }}_amd64.deb
+          asset_content_type: application/vnd.debian.binary-package
+
+      - name: Upload Linux AMD64 RPM
+        if: github.event_name == 'release' && matrix.platform == 'ubuntu-22.04'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./out/make/rpm/amd64/easy-web-dashboard-${{ github.ref_name }}-1.amd64.rpm
+          asset_name: easy-web-dashboard-${{ github.ref_name }}-1.amd64.rpm
+          asset_content_type: application/x-rpm
+
+      # macOS ARM64 DMG
+      - name: Upload macOS ARM64 DMG
+        if: github.event_name == 'release' && matrix.platform == 'macos-latest' && contains(matrix.args, 'aarch64')
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./out/make/easy-web-dashboard-${{ github.ref_name }}-arm64.dmg
+          asset_name: easy-web-dashboard-${{ github.ref_name }}-arm64.dmg
+          asset_content_type: application/x-apple-diskimage
+
+      # macOS x64 DMG
+      - name: Upload macOS x64 DMG
+        if: github.event_name == 'release' && matrix.platform == 'macos-latest' && contains(matrix.args, 'x86_64')
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./out/make/easy-web-dashboard-${{ github.ref_name }}-x64.dmg
+          asset_name: easy-web-dashboard-${{ github.ref_name }}-x64.dmg
+          asset_content_type: application/x-apple-diskimage
+
+      # Windows Squirrel Installer (x64)
+      - name: Upload Windows x64 Installer
+        if: github.event_name == 'release' && matrix.platform == 'windows-latest'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./out/make/squirrel.windows/x64/easy-web-dashboard-${{ github.ref_name }} Setup.exe
+          asset_name: easy-web-dashboard-${{ github.ref_name }}-x64-setup.exe
+          asset_content_type: application/vnd.microsoft.portable-executable
+
+      # Windows Squirrel Installer (ARM64)
+      - name: Upload Windows ARM64 Installer
+        if: github.event_name == 'release' && matrix.platform == 'windows-11-arm'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./out/make/squirrel.windows/arm64/easy-web-dashboard-${{ github.ref_name }} Setup.exe
+          asset_name: easy-web-dashboard-${{ github.ref_name }}-arm64-setup.exe
+          asset_content_type: application/vnd.microsoft.portable-executable

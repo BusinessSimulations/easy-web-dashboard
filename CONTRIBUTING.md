@@ -53,10 +53,6 @@ This section details how you can work on the project locally.
 You will need these dependencies:
 
 - NodeJS v22+
-- Rust v1.90+
-
-If you are on Linux you need to be set up with dependencies for Tauri development, see here:
-<https://v2.tauri.app/start/prerequisites/#linux>
 
 Follow these steps after forking and cloning the repository to run the project:
 
@@ -69,12 +65,12 @@ npm ci
 2. Run the application:
 
 ```bash
-npm run tauri dev
+npm start
 ```
 
 ### Useful commands
 
-- `npm run tauri build` - builds the project
+- `npm run make` - builds the project for your device operating system and architecture
 
 ## Architecture
 

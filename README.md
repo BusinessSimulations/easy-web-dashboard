@@ -1,7 +1,8 @@
 # easy-web-dashboard
 
-A simple web dashboard for displaying different pages. Provides automatic cycling between pages and manual control of
-switching between pages. Built to provide a straightforward and useful dashboard on a big screen in an office.
+A simple desktop web dashboard for displaying different pages. Provides automatic cycling between pages and manual
+control of switching between pages. Built to provide a straightforward and useful dashboard on a big screen in an
+office.
 
 [![Business Simulations Logo](https://businesssimulations.com/logo.png)](https://businesssimulations.com/)
 
@@ -9,7 +10,7 @@ switching between pages. Built to provide a straightforward and useful dashboard
 
 ## What is it?
 
-Easy Web Dashboard is a lightweight application that transforms any display into a dynamic information center. It
+Easy Web Dashboard is a simple application that transforms any display into a dynamic information center. It
 allows you to cycle through multiple websites automatically or manually on a single screen. The dashboard is designed
 to be simple to set up and use, making it perfect for office environments where you want to display various web
 resources like dashboards, metrics, news sites, or company information.
@@ -37,20 +38,19 @@ go
 - **Multiple Configuration Options**: Set up using either environment variables or a JSON configuration file
 - **Cross-Platform Support**: Runs on Windows, MacOS, and Linux, on both AMD64 and ARM64 architectures
 - **Responsive Design**: Works well on various screen sizes and orientations
-- **Lightweight**: Minimal resource usage to ensure smooth operation
 - **Full-Screen Mode**: Optimize screen real estate for information display
 - **Simple Navigation Bar**: Easy access to controls and site selection
 
 ## Getting started
 
-Download the executable for your platform from the [latest release page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.3.0).
+Download the executable for your platform from the [latest release page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.4.0).
 
-- [Linux AMD64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.3.0/easy-web-dashboard_linux_amd64.deb)
-- [Linux ARM64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.3.0/easy-web-dashboard_linux_arm64.deb)
-- [MacOS ARM](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.3.0/easy-web-dashboard_darwin_aarch64.dmg)
-- [MacOS Intel](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.3.0/easy-web-dashboard_darwin_x64.dmg)
-- [Windows AMD64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.3.0/easy-web-dashboard_windows_x64.exe)
-- [Windows ARM64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.3.0/easy-web-dashboard_windows_arm64.exe)
+- [Linux AMD64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.4.0/easy-web-dashboard_0.4.0_arm64.deb)
+- [Linux ARM64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.4.0/easy-web-dashboard_0.4.0_amd64.deb)
+- [MacOS ARM](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.4.0/easy-web-dashboard-0.4.0-arm64.dmg)
+- [MacOS Intel](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.4.0/easy-web-dashboard-0.4.0-x64.dmg)
+- [Windows AMD64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.4.0/easy-web-dashboard-0.4.0-x64-setup.exe)
+- [Windows ARM64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.4.0/easy-web-dashboard-0.4.0-arm64-setup.exe)
 
 Install the application according to your operating system procedure.
 
@@ -93,7 +93,7 @@ run.
 ### Others (Linux Fedora etc.)
 
 Look at the available installation bundles on the [latest release
-page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.3.0) to check for a supported installer.
+page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.4.0) to check for a supported installer.
 
 ## Configuration
 
