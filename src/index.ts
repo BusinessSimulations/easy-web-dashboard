@@ -78,13 +78,12 @@ const createWindow = (): void => {
     const config = loadConfig();
 
     const win = new BrowserWindow({
-        fullscreen: true,
-        resizable: false,
-        titleBarStyle: 'hidden',
+        width: 400,
+        height: 400,
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true
-        }
+        },
     });
 
     const bounds = win.getBounds();
@@ -159,6 +158,13 @@ const createWindow = (): void => {
     ipcMain.on('load-url', (event, url) => {
         contentView.webContents.loadURL(url);
     });
+
+    // This is an attempt to work around Wayland weirdness on startup, it seems to break on Raspberry PI when
+    // you immediately go full screen
+    setTimeout(() => {
+        win.setFullScreen(true);
+        win.setKiosk(true);
+    }, 5000);
 };
 
 app.on('ready', createWindow);
