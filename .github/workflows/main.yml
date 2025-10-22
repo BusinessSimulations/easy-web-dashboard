@@ -17,9 +17,9 @@ jobs:
       matrix:
         include:
           - platform: 'macos-latest'
-            args: '--target aarch64-apple-darwin'
+            args: '--arch arm64'
           - platform: 'macos-latest'
-            args: '--target x86_64-apple-darwin'
+            args: '--arch x86'
           - platform: 'ubuntu-22.04'
             args: ''
           - platform: 'ubuntu-22.04-arm'
@@ -46,10 +46,10 @@ jobs:
 
       - name: mark version in npm
         if: github.event_name == 'release'
-        run: npm version ${{ github.ref_name }}
+        run: npm version --no-git-tag-version ${{ github.ref_name }}
 
       - name: build application
-        run: npm run make
+        run: npm run make -- ${{ matrix.args }}
 
       # Linux ARM64 packages
       - name: Upload Linux ARM64 DEB
