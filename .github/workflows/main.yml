@@ -19,7 +19,7 @@ jobs:
           - platform: 'macos-latest'
             args: '--arch arm64'
           - platform: 'macos-latest'
-            args: '--arch x86'
+            args: '--arch x64'
           - platform: 'ubuntu-22.04'
             args: ''
           - platform: 'ubuntu-22.04-arm'
