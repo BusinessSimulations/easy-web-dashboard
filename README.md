@@ -45,7 +45,7 @@ go
 
 Download the executable for your platform from the [latest release page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.4.0).
 
-- [Linux AMD64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.4.0/easy-web-dashboard-0.4.0-linux-x64.deb)
+- [Linux AMD64 Debian](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.4.0/easy-web-dashboard-0.4.0-linux-x64.deb)
 - [Linux ARM64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.4.0/easy-web-dashboard-0.4.0-linux-arm64.deb)
 - [MacOS ARM](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.4.0/easy-web-dashboard-0.4.0-macos-arm64.dmg)
 - [MacOS Intel](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.4.0/easy-web-dashboard-0.4.0-macos-x64.dmg)
