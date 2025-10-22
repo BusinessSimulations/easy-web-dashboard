@@ -51,48 +51,78 @@ jobs:
       - name: build application
         run: npm run make -- ${{ matrix.args }}
 
+      # Linux ARM64
+      - name: rename release assets for Linux ARM64
+        if: github.event_name == 'release' && matrix.platform == 'ubuntu-22.04-arm'
+        run: |
+          mv ./out/make/deb/arm64/easy-web-dashboard_${{ github.ref_name }}_arm64.deb easy-web-dashboard-${{ github.ref_name }}-linux-arm64.deb
+          mv ./out/make/rpm/arm64/easy-web-dashboard-${{ github.ref_name }}-1.arm64.rpm easy-web-dashboard-${{ github.ref_name }}-linux-arm64.rpm
       - name: Upload Linux ARM64 Assets
         if: github.event_name == 'release' && matrix.platform == 'ubuntu-22.04-arm'
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./out/make/deb/arm64/easy-web-dashboard_${{ github.ref_name }}_arm64.deb
-            ./out/make/rpm/arm64/easy-web-dashboard-${{ github.ref_name }}-1.arm64.rpm
+            easy-web-dashboard-${{ github.ref_name }}-linux-arm64.deb
+            easy-web-dashboard-${{ github.ref_name }}-linux-arm64.rpm
 
+      # Linux x64
+      - name: rename release assets for Linux x64
+        if: github.event_name == 'release' && matrix.platform == 'ubuntu-22.04'
+        run: |
+          mv ./out/make/deb/x64/easy-web-dashboard_${{ github.ref_name }}_amd64.deb easy-web-dashboard-${{ github.ref_name }}-linux-x64.deb
+          mv ./out/make/rpm/x64/easy-web-dashboard-${{ github.ref_name }}-1.x86_64.rpm easy-web-dashboard-${{ github.ref_name }}-linux-x64.rpm
       - name: Upload Linux x64 Assets
         if: github.event_name == 'release' && matrix.platform == 'ubuntu-22.04'
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./out/make/deb/x64/easy-web-dashboard_${{ github.ref_name }}_x64.deb
-            ./out/make/rpm/x64/easy-web-dashboard-${{ github.ref_name }}-1.x64.rpm
+            easy-web-dashboard-${{ github.ref_name }}-linux-x64.deb
+            easy-web-dashboard-${{ github.ref_name }}-linux-x64.rpm
 
+      # macOS ARM64
+      - name: rename release assets for macOS ARM64
+        if: github.event_name == 'release' && matrix.platform == 'macos-latest' && contains(matrix.args, 'arm64')
+        run: |
+          mv ./out/make/easy-web-dashboard-${{ github.ref_name }}-arm64.dmg easy-web-dashboard-${{ github.ref_name }}-macos-arm64.dmg
       - name: Upload macOS ARM64 Assets
         if: github.event_name == 'release' && matrix.platform == 'macos-latest' && contains(matrix.args, 'arm64')
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./out/make/easy-web-dashboard-${{ github.ref_name }}-arm64.dmg
+            easy-web-dashboard-${{ github.ref_name }}-macos-arm64.dmg
 
+      # macOS x64
+      - name: rename release assets for macOS x64
+        if: github.event_name == 'release' && matrix.platform == 'macos-latest' && contains(matrix.args, 'x64')
+        run: |
+          mv ./out/make/easy-web-dashboard-${{ github.ref_name }}-x64.dmg easy-web-dashboard-${{ github.ref_name }}-macos-x64.dmg
       - name: Upload macOS x64 Assets
         if: github.event_name == 'release' && matrix.platform == 'macos-latest' && contains(matrix.args, 'x64')
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./out/make/easy-web-dashboard-${{ github.ref_name }}-x64.dmg
+            easy-web-dashboard-${{ github.ref_name }}-macos-x64.dmg
 
+      # Windows x64
+      - name: rename release assets for Windows x64
+        if: github.event_name == 'release' && matrix.platform == 'windows-latest'
+        run: |
+          mv "./out/make/squirrel.windows/x64/easy-web-dashboard-${{ github.ref_name }} Setup.exe" "easy-web-dashboard-${{ github.ref_name }}-windows-x64.exe"
       - name: Upload Windows x64 Assets
         if: github.event_name == 'release' && matrix.platform == 'windows-latest'
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./out/make/squirrel.windows/x64/easy-web-dashboard-${{ github.ref_name }} Setup.exe
-          name: easy-web-dashboard-${{ github.ref_name }}-x64-setup.exe
+            easy-web-dashboard-${{ github.ref_name }}-windows-x64.exe
 
+      # Windows ARM64
+      - name: rename release assets for Windows ARM64
+        if: github.event_name == 'release' && matrix.platform == 'windows-11-arm'
+        run: |
+          mv "./out/make/squirrel.windows/arm64/easy-web-dashboard-${{ github.ref_name }} Setup.exe" "easy-web-dashboard-${{ github.ref_name }}-windows-arm64.exe"
       - name: Upload Windows ARM64 Assets
         if: github.event_name == 'release' && matrix.platform == 'windows-11-arm'
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./out/make/squirrel.windows/arm64/easy-web-dashboard-${{ github.ref_name }} Setup.exe
-          name: easy-web-dashboard-${{ github.ref_name }}-arm64-setup.exe
+            easy-web-dashboard-${{ github.ref_name }}-windows-arm64.exe
