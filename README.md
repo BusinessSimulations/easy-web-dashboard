@@ -72,6 +72,12 @@ sudo apt install -f
 
 And then run the `dpkg` command again to finish the installation.
 
+You can then launch the application by running:
+
+```bash
+easy-web-dashboard
+```
+
 ### MacOS
 
 Double click the DMG file and install it into your `Applications`.
