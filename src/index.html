@@ -138,6 +138,7 @@
                 rotationTimer = setInterval(() => {
                     currentSiteIndex = (currentSiteIndex + 1) % config.sites.length;
                     window.api.loadUrl(config.sites[currentSiteIndex].url);
+                    updateActiveButton();
                 }, config.dashboard.rotation_seconds * 1000);
             }
 
@@ -148,6 +149,19 @@
                 if (rotationTimer) {
                     clearInterval(rotationTimer);
                     rotationTimer = null;
+                }
+            }
+
+            function updateActiveButton() {
+                // Remove active class from all buttons
+                const buttons = document.querySelectorAll('#nav-buttons button');
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Add active class to current button
+                if (buttons[currentSiteIndex]) {
+                    buttons[currentSiteIndex].classList.add('active');
                 }
             }
 
@@ -162,9 +176,13 @@
 
                             currentSiteIndex = index;
                             window.api.loadUrl(site.url);
+                            updateActiveButton();
                         });
                         navBar.appendChild(button);
                     });
+
+                    // Set initial active button
+                    updateActiveButton();
                 }
 
                 if (config.dashboard.rotation_enabled) {
@@ -193,32 +211,36 @@
             }
         });
 
-        // Helper function to apply theme from configuration
         function applyTheme(dashboardConfig) {
             const style = document.createElement('style');
             style.textContent = `
-            nav {
-                background-color: ${dashboardConfig.background_color};
-                color: ${dashboardConfig.text_color};
-                display: ${dashboardConfig.controls_enabled ? 'flex' : 'none'};
-            }
-            nav button {
-                background-color: ${dashboardConfig.primary_color};
-                color: ${dashboardConfig.primary_contrast_color};
-            }
-            .auto-rotate label {
-                color: ${dashboardConfig.text_color};
-            }
-            .toggle-icon {
-                color: ${dashboardConfig.primary_color};
-            }
-            .hidden-checkbox:checked + .toggle-icon {
-                color: ${dashboardConfig.primary_color};
-            }
-            .hidden-checkbox:not(:checked) + .toggle-icon {
-                color: ${dashboardConfig.primary_color};
-            }
-        `;
+                nav {
+                    background-color: ${dashboardConfig.background_color};
+                    color: ${dashboardConfig.text_color};
+                    display: ${dashboardConfig.controls_enabled ? 'flex' : 'none'};
+                }
+                nav button {
+                    background-color: transparent;
+                    color: ${dashboardConfig.primary_color};
+                    border: 1px solid ${dashboardConfig.primary_color} !important;
+                }
+                nav button.active {
+                    background-color: ${dashboardConfig.primary_color};
+                    color: ${dashboardConfig.primary_contrast_color};
+                }
+                .auto-rotate label {
+                    color: ${dashboardConfig.text_color};
+                }
+                .toggle-icon {
+                    color: ${dashboardConfig.primary_color};
+                }
+                .hidden-checkbox:checked + .toggle-icon {
+                    color: ${dashboardConfig.primary_color};
+                }
+                .hidden-checkbox:not(:checked) + .toggle-icon {
+                    color: ${dashboardConfig.primary_color};
+                }
+            `;
             document.head.appendChild(style);
         }
     </script>

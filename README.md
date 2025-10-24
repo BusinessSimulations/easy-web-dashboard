@@ -1,8 +1,10 @@
-# easy-web-dashboard
+# Easy Web Dashboard
 
 A simple desktop web dashboard for displaying different pages. Provides automatic cycling between pages and manual
 control of switching between pages. Built to provide a straightforward and useful dashboard on a big screen in an
 office.
+
+![Demonstration of Easy Web Dashboard](./demo.gif)
 
 [![Business Simulations Logo](https://businesssimulations.com/logo.png)](https://businesssimulations.com/)
 
@@ -35,7 +37,7 @@ go
 - **Touch Controls**: Manually navigate between sites using touch-friendly controls
 - **Pause/Resume**: Temporarily pause rotation when needed for focused viewing
 - **Customizable Styling**: Adjust colors to match your company branding or preferences
-- **Multiple Configuration Options**: Set up using either environment variables or a JSON configuration file
+- **Multiple Configuration Options**: Set up using a JSON configuration file
 - **Cross-Platform Support**: Runs on Windows, MacOS, and Linux, on both AMD64 and ARM64 architectures
 - **Responsive Design**: Works well on various screen sizes and orientations
 - **Full-Screen Mode**: Optimize screen real estate for information display
@@ -97,7 +99,7 @@ page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.4
 
 ## Configuration
 
-You can configure easy-web-dashboard using a JSON configuration file called `config.json` in the directory that you are
+You can configure Easy Web Dashboard using a JSON configuration file called `config.json` in the directory that you are
 running the program from.
 
 ### Example JSON Configuration
@@ -111,6 +113,12 @@ running the program from.
         }
     ],
     "dashboard": {
+        "window_mode": "window",
+        "window_size": {
+            "width": 1000,
+            "height": 1000
+        },
+        "resizable": true,
         "controls_enabled": true,
         "rotation_seconds": 45,
         "rotation_enabled": true,
@@ -125,7 +133,7 @@ running the program from.
 
 ### Reference
 
-This is a list of all of the JSON properties that can be used to configure easy-web-dashboard.
+This is a list of all of the JSON properties that can be used to configure Easy Web Dashboard.
 
 #### Root
 
@@ -201,6 +209,27 @@ This is a list of all of the JSON properties that can be used to configure easy-
     </thead>
     <tbody>
         <tr>
+            <td>window_mode</td>
+            <td>string</td>
+            <td>Display mode for the window. Options: 'kiosk', 'fullscreen', 'maximized', 'window'.</td>
+            <td>fullscreen</td>
+            <td>kiosk</td>
+        </tr>
+        <tr>
+            <td>window_size</td>
+            <td>object</td>
+            <td>Size of the window in pixels when in 'window' mode.</td>
+            <td>See <a href="#window_size">window_size</a> for more information.</td>
+            <td>Default values</td>
+        </tr>
+        <tr>
+            <td>resizable</td>
+            <td>boolean</td>
+            <td>Whether the window can be resized by the user.</td>
+            <td>true</td>
+            <td>false</td>
+        </tr>
+        <tr>
             <td>controls_enabled</td>
             <td>boolean</td>
             <td>If the dashboard controls are enabled, if not the controls bar will not be visible.</td>
@@ -255,6 +284,36 @@ This is a list of all of the JSON properties that can be used to configure easy-
             <td>Background color of the dashboard (hex format).</td>
             <td>#21244F</td>
             <td>#f5f5f5</td>
+        </tr>
+    </tbody>
+</table>
+
+#### window_size
+
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Example</th>
+            <th>Default Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>width</td>
+            <td>number</td>
+            <td>Width of the window in pixels.</td>
+            <td>1024</td>
+            <td>600</td>
+        </tr>
+        <tr>
+            <td>height</td>
+            <td>number</td>
+            <td>Height of the window in pixels.</td>
+            <td>768</td>
+            <td>600</td>
         </tr>
     </tbody>
 </table>

@@ -6,6 +6,13 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.5.0] - 2025-10-24
+- Added 'window_mode', allows specifying how the window should be displayed ('kiosk', 'fullscreen', 'window',
+'maximized')
+- Added 'resizable', allows choosing if the window should be resizable
+- Added 'window_size', allows choosing a window size, relevant for 'window' screen mode
+- Added active/inactive states for navigation buttons
+
 ## [0.4.0] - 2025-10-22
 - Switch from Tauri to Electron
 
@@ -22,7 +29,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - Initial release
 
 [Unreleased]:
-https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.4.0...HEAD
+https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.5.0...HEAD
+[0.5.0]:
+https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.4.0...0.5.0
 [0.4.0]:
 https://github.com/BusinessSimulations/easy-web-dashboard/compare/0.3.0...0.4.0
 [0.3.0]:

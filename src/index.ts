@@ -7,12 +7,17 @@ import * as path from 'path';
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
+type WindowMode = 'kiosk' | 'fullscreen' | 'maximized' | 'window';
+
 interface SiteConfig {
     url: string;
     name: string;
 }
 
 interface DashboardConfig {
+    window_mode: WindowMode;
+    window_size: WindowSize;
+    resizable: boolean;
     controls_enabled: boolean;
     rotation_seconds: number;
     rotation_enabled: boolean;
@@ -21,6 +26,11 @@ interface DashboardConfig {
     primary_contrast_color: string;
     text_color: string;
     background_color: string;
+}
+
+interface WindowSize {
+    width: number;
+    height: number;
 }
 
 interface AppConfig {
@@ -34,6 +44,12 @@ const defaultConfig: AppConfig = {
         { url: 'https://businesssimulations.com/', name: 'Business Simulations' }
     ],
     dashboard: {
+        window_mode: 'kiosk',
+        window_size: {
+            width: 600,
+            height: 600
+        },
+        resizable: false,
         controls_enabled: true,
         rotation_seconds: 30,
         rotation_enabled: true,
@@ -78,8 +94,9 @@ const createWindow = (): void => {
     const config = loadConfig();
 
     const win = new BrowserWindow({
-        width: 400,
-        height: 400,
+        width: config.dashboard.window_size.width,
+        height: config.dashboard.window_size.height,
+        resizable: config.dashboard.resizable,
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true
@@ -162,8 +179,21 @@ const createWindow = (): void => {
     // This is an attempt to work around Wayland weirdness on startup, it seems to break on Raspberry PI when
     // you immediately go full screen
     setTimeout(() => {
-        win.setFullScreen(true);
-        win.setKiosk(true);
+        switch (config.dashboard.window_mode) {
+            case 'kiosk': {
+                win.setFullScreen(true);
+                win.setKiosk(true);
+                break;
+            }
+            case 'fullscreen': {
+                win.setFullScreen(true);
+                break;
+            }
+            case 'maximized': {
+                win.maximize();
+                break;
+            }
+        }
     }, 5000);
 };
 
