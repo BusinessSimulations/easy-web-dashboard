@@ -45,14 +45,14 @@ go
 
 ## Getting started
 
-Download the executable for your platform from the [latest release page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.5.0).
+Download the executable for your platform from the [latest release page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.5.1).
 
-- [Linux AMD64 Debian](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.0/easy-web-dashboard-0.5.0-linux-x64.deb)
-- [Linux ARM64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.0/easy-web-dashboard-0.5.0-linux-arm64.deb)
-- [MacOS ARM](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.0/easy-web-dashboard-0.5.0-macos-arm64.dmg)
-- [MacOS Intel](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.0/easy-web-dashboard-0.5.0-macos-x64.dmg)
-- [Windows AMD64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.0/easy-web-dashboard-0.5.0-windows-x64.exe)
-- [Windows ARM64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.0/easy-web-dashboard-0.5.0-windows-arm64.exe)
+- [Linux AMD64 Debian](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-linux-x64.deb)
+- [Linux ARM64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-linux-arm64.deb)
+- [MacOS ARM](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-macos-arm64.zip)
+- [MacOS Intel](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-macos-x64.zip)
+- [Windows AMD64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-windows-x64.exe)
+- [Windows ARM64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-windows-arm64.exe)
 
 Install the application according to your operating system procedure.
 
@@ -80,28 +80,31 @@ easy-web-dashboard
 
 ### MacOS
 
-Double click the DMG file and install it into your `Applications`.
+Download the zip archive for MacOS and extract the contents.
 
-When you try to open the application it will fail to open with a message like:
+Inside you will find the `easy-web-dashboard` executable, hold 'Option', and then right click on it, and choose
+'Open'.
 
-> Apple could not verify "easy-web-dashboard" is free of malware that may harm your Mac or compromise your privacy.
+There may be warnings about running the application because it is an unsigned and unverified application.
 
-To allow you to open this, you need to allow it past this security feature.
+You can move the application into your 'Applications' folder if you want to make it easy to launch.
 
-Open up your 'System Settings', go to 'Privacy & Security' and scroll down to 'Security', there should be a message
-stating that "easy-web-dashboard" was blocked from opening, and you can choose to override this and open it anyway.
-
-Once this is done the application will be able to open normally.
+The application contains the binary file at `easy-web-dashboard.app/Contents/MacOS/easy-web-dashboard` which
+you can run from the terminal.
 
 ### Windows
 
 Double click the executable file, this will install the application, you may have to grant permission to allow it to
 run.
 
+You should be able to launch the program by searching for `easy-web-dashboard`.
+
+You can also launch the application by running the executable that was installed through the command line.
+
 ### Others (Linux Fedora etc.)
 
 Look at the available installation bundles on the [latest release
-page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.5.0) to check for a supported installer.
+page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.5.1) to check for a supported installer.
 
 ## Configuration
 

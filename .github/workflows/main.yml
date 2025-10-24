@@ -83,25 +83,25 @@ jobs:
       - name: rename release assets for macOS ARM64
         if: github.event_name == 'release' && matrix.platform == 'macos-latest' && contains(matrix.args, 'arm64')
         run: |
-          mv ./out/make/easy-web-dashboard-${{ github.ref_name }}-arm64.dmg easy-web-dashboard-${{ github.ref_name }}-macos-arm64.dmg
+          mv ./out/make/zip/darwin/arm64/easy-web-dashboard-darwin-arm64-${{ github.ref_name}}.zip easy-web-dashboard-${{ github.ref_name }}-macos-arm64.zip
       - name: Upload macOS ARM64 Assets
         if: github.event_name == 'release' && matrix.platform == 'macos-latest' && contains(matrix.args, 'arm64')
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            easy-web-dashboard-${{ github.ref_name }}-macos-arm64.dmg
+            easy-web-dashboard-${{ github.ref_name }}-macos-arm64.zip
 
       # macOS x64
       - name: rename release assets for macOS x64
         if: github.event_name == 'release' && matrix.platform == 'macos-latest' && contains(matrix.args, 'x64')
         run: |
-          mv ./out/make/easy-web-dashboard-${{ github.ref_name }}-x64.dmg easy-web-dashboard-${{ github.ref_name }}-macos-x64.dmg
+          mv ./out/make/zip/darwin/x64/easy-web-dashboard-darwin-x64-${{ github.ref_name}}.zip easy-web-dashboard-${{ github.ref_name }}-macos-x64.zip
       - name: Upload macOS x64 Assets
         if: github.event_name == 'release' && matrix.platform == 'macos-latest' && contains(matrix.args, 'x64')
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            easy-web-dashboard-${{ github.ref_name }}-macos-x64.dmg
+            easy-web-dashboard-${{ github.ref_name }}-macos-x64.zip
 
       # Windows x64
       - name: rename release assets for Windows x64

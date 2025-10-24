@@ -1,6 +1,6 @@
 import type { ForgeConfig } from '@electron-forge/shared-types';
 import { MakerSquirrel } from '@electron-forge/maker-squirrel';
-import { MakerDMG } from '@electron-forge/maker-dmg';
+import { MakerZIP } from '@electron-forge/maker-zip';
 import { MakerDeb } from '@electron-forge/maker-deb';
 import { MakerRpm } from '@electron-forge/maker-rpm';
 import { AutoUnpackNativesPlugin } from '@electron-forge/plugin-auto-unpack-natives';
@@ -21,9 +21,6 @@ const config: ForgeConfig = {
     new MakerSquirrel({
       setupIcon: 'images/icon.ico'
     }),
-    new MakerDMG({
-      icon: 'images/icon.icns'
-    }),
     new MakerRpm({
       options: {
         icon: 'images/icon.png'
@@ -34,6 +31,7 @@ const config: ForgeConfig = {
         icon: 'images/icon.png'
       }
     }),
+    new MakerZIP({})
   ],
   plugins: [
     new AutoUnpackNativesPlugin({}),
@@ -61,7 +59,7 @@ const config: ForgeConfig = {
       [FuseV1Options.EnableCookieEncryption]: true,
       [FuseV1Options.EnableNodeOptionsEnvironmentVariable]: false,
       [FuseV1Options.EnableNodeCliInspectArguments]: false,
-      [FuseV1Options.EnableEmbeddedAsarIntegrityValidation]: true,
+      [FuseV1Options.EnableEmbeddedAsarIntegrityValidation]: false,
       [FuseV1Options.OnlyLoadAppFromAsar]: true,
     }),
   ],
