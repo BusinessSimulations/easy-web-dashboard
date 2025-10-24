@@ -82,15 +82,21 @@ easy-web-dashboard
 
 Download the zip archive for MacOS and extract the contents.
 
-Inside you will find the `easy-web-dashboard` executable, hold 'Option', and then right click on it, and choose
-'Open'.
+Inside you will find the `easy-web-dashboard.app` application.
 
-There may be warnings about running the application because it is an unsigned and unverified application.
+It is not a signed and verified application, so you will have to move it out of quarantine to use it:
+
+```bash
+xattr -rd com.apple.quarantine easy-web-dashboard.app
+```
 
 You can move the application into your 'Applications' folder if you want to make it easy to launch.
 
-The application contains the binary file at `easy-web-dashboard.app/Contents/MacOS/easy-web-dashboard` which
-you can run from the terminal.
+The application can be launched from the terminal by running this command pointing to the app:
+
+```bash
+open ./easy-web-dashboard.app
+```
 
 ### Windows
 
