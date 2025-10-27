@@ -45,14 +45,14 @@ go
 
 ## Getting started
 
-Download the executable for your platform from the [latest release page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.5.1).
+Download the executable for your platform from the [latest release page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.5.2).
 
-- [Linux AMD64 Debian](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-linux-x64.deb)
-- [Linux ARM64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-linux-arm64.deb)
-- [MacOS ARM](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-macos-arm64.zip)
-- [MacOS Intel](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-macos-x64.zip)
-- [Windows AMD64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-windows-x64.exe)
-- [Windows ARM64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.1/easy-web-dashboard-0.5.1-windows-arm64.exe)
+- [Linux AMD64 Debian](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.2/easy-web-dashboard-0.5.2-linux-x64.deb)
+- [Linux ARM64 Debian/Raspberry PI](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.2/easy-web-dashboard-0.5.2-linux-arm64.deb)
+- [MacOS ARM](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.2/easy-web-dashboard-0.5.2-macos-arm64.zip)
+- [MacOS Intel](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.2/easy-web-dashboard-0.5.2-macos-x64.zip)
+- [Windows AMD64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.2/easy-web-dashboard-0.5.2-windows-x64.exe)
+- [Windows ARM64](https://github.com/BusinessSimulations/easy-web-dashboard/releases/download/0.5.2/easy-web-dashboard-0.5.2-windows-arm64.exe)
 
 Install the application according to your operating system procedure.
 
@@ -110,7 +110,7 @@ You can also launch the application by running the executable that was installed
 ### Others (Linux Fedora etc.)
 
 Look at the available installation bundles on the [latest release
-page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.5.1) to check for a supported installer.
+page](https://github.com/BusinessSimulations/easy-web-dashboard/releases/tag/0.5.2) to check for a supported installer.
 
 ## Configuration
 

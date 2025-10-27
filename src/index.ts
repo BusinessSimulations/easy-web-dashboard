@@ -96,7 +96,7 @@ const createWindow = (): void => {
     const win = new BrowserWindow({
         width: config.dashboard.window_size.width,
         height: config.dashboard.window_size.height,
-        resizable: config.dashboard.resizable,
+        resizable: true,
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true
@@ -183,14 +183,25 @@ const createWindow = (): void => {
             case 'kiosk': {
                 win.setFullScreen(true);
                 win.setKiosk(true);
+                win.on('enter-full-screen', () => {
+                    win.setResizable(config.dashboard.resizable);
+                });
                 break;
             }
             case 'fullscreen': {
                 win.setFullScreen(true);
+                win.on('enter-full-screen', () => {
+                    win.setResizable(config.dashboard.resizable);
+                });
                 break;
             }
             case 'maximized': {
                 win.maximize();
+                win.setResizable(config.dashboard.resizable);
+                break;
+            }
+            default: {
+                win.setResizable(config.dashboard.resizable);
                 break;
             }
         }
